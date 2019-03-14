@@ -9,4 +9,6 @@
 
 - shot_type: indicates whether a shot is a 2-point field goal, or a 3-point field goal.
 
-- shot_distance: distance to the basket (measured in feet). x and y refer to the court coordinates (measured in inches) where a shot occurred .
+- shot_distance: distance to the basket (measured in feet). 
+
+- x and y: court coordinates (measured in inches) where a shot occurred .
