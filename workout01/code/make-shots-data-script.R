@@ -1,17 +1,13 @@
 #title: Data Script
 #description: The primary goal is to create a csv data file inside the code frame
-#input:
-#output:
-datatypes <- c("team_name"="character", "game_date"="character", "season" = "integer", "period"="integer",
-               "minutes_remaining"="integer", "seconds_remaining"="integer", "shot_made_flag"="character",
-               "action_type"="factor", "shot_type"="factor", "shot_distance"="integer", "opponent"="character",
-               "x"="integer", "y"="integer")
+#input: will receive data within the workout01/data folder
+#output: will output data into the ../output and create a combined data frame
 
-thompson <- read.csv("../data/klay-thompson.csv", stringsAsFactors = FALSE, colClasses = data_types)
-curry <- read.csv("../data/stephen-curry.csv", stringsAsFactors = FALSE, colClasses = data_types)
-durant <- read.csv("../data/kevin-durant.csv", stringsAsFactors = FALSE, colClasses = data_types)
-green <- read.csv("../data/draymond-green.csv", stringsAsFactors = FALSE, colClasses = data_types)
-iguodala <- read.csv("../data/andre-iguodala.csv", stringsAsFactors = FALSE, colClasses = data_types)
+thompson <- read.csv("../data/klay-thompson.csv", stringsAsFactors = FALSE)
+curry <- read.csv("../data/stephen-curry.csv", stringsAsFactors = FALSE)
+durant <- read.csv("../data/kevin-durant.csv", stringsAsFactors = FALSE)
+green <- read.csv("../data/draymond-green.csv", stringsAsFactors = FALSE)
+iguodala <- read.csv("../data/andre-iguodala.csv", stringsAsFactors = FALSE)
 
 curry$name <- "Stephen Curry"
 iguodala$name <- "Andre Iguodala"
@@ -58,3 +54,4 @@ write.csv(data_combined, file = "../data/shots-data.csv")
 sink(file = "../output/shots-data-summary.txt")
 summary(data_combined)
 sink()
+
