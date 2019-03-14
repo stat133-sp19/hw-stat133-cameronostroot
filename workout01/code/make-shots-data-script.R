@@ -3,11 +3,13 @@
 #input: will receive data within the workout01/data folder
 #output: will output data into the ../output and create a combined data frame
 
-thompson <- read.csv("../data/klay-thompson.csv", stringsAsFactors = FALSE)
-curry <- read.csv("../data/stephen-curry.csv", stringsAsFactors = FALSE)
-durant <- read.csv("../data/kevin-durant.csv", stringsAsFactors = FALSE)
-green <- read.csv("../data/draymond-green.csv", stringsAsFactors = FALSE)
-iguodala <- read.csv("../data/andre-iguodala.csv", stringsAsFactors = FALSE)
+datatypes <- c("x"="integer", "y"="integer", "game_date"="character", "period"="integer", "shot_distance"="integer", "minutes_remaining"="integer", "action_type"="factor", "seconds_remaining"="integer", "shot_made_flag"="character","season" = "integer", "shot_type"="factor", "team_name"="character", "opponent"="character")
+
+thompson <- read.csv("../data/klay-thompson.csv", stringsAsFactors = FALSE, colClasses = datatypes)
+curry <- read.csv("../data/stephen-curry.csv", stringsAsFactors = FALSE, colClasses = datatypes)
+durant <- read.csv("../data/kevin-durant.csv", stringsAsFactors = FALSE, colClasses = datatypes)
+green <- read.csv("../data/draymond-green.csv", stringsAsFactors = FALSE, colClasses = datatypes)
+iguodala <- read.csv("../data/andre-iguodala.csv", stringsAsFactors = FALSE, colClasses = datatypes)
 
 curry$name <- "Stephen Curry"
 iguodala$name <- "Andre Iguodala"
