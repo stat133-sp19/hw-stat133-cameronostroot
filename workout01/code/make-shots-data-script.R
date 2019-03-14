@@ -18,15 +18,18 @@ green$name <- "Draymond Green"
 thompson$name <- "Klay Thompson"
 
 curry$shot_made_flag[curry$shot_made_flag == "n"] <- "shot_no"
-iguodala$shot_made_flag[iguodala$shot_made_flag == "n"] <- "shot_no"
-durant$shot_made_flag[durant$shot_made_flag == "n"] <- "shot_no"
-green$shot_made_flag[green$shot_made_flag == "n"] <- "shot_no"
-thompson$shot_made_flag[thompson$shot_made_flag == "n"] <- "shot_no"
-
 curry$shot_made_flag[curry$shot_made_flag == "y"] <- "shot_yes"
+
+iguodala$shot_made_flag[iguodala$shot_made_flag == "n"] <- "shot_no"
 iguodala$shot_made_flag[iguodala$shot_made_flag == "y"] <- "shot_yes"
+
+durant$shot_made_flag[durant$shot_made_flag == "n"] <- "shot_no"
 durant$shot_made_flag[durant$shot_made_flag == "y"] <- "shot_yes"
+
+green$shot_made_flag[green$shot_made_flag == "n"] <- "shot_no"
 green$shot_made_flag[green$shot_made_flag == "y"] <- "shot_yes"
+
+thompson$shot_made_flag[thompson$shot_made_flag == "n"] <- "shot_no"
 thompson$shot_made_flag[thompson$shot_made_flag == "y"] <- "shot_yes"
 
 
@@ -49,11 +52,11 @@ sink(file= "../output/klay-thompson-summary.txt")
 summary(thompson)
 
 
-data_combined <- rbind(thompson, curry, durant, green, iguodala)
+data_combined <- rbind(curry, iguodala, durant, green, thompson)
 
 write.csv(data_combined, file = "../data/shots-data.csv")
 
 sink(file = "../output/shots-data-summary.txt")
 summary(data_combined)
-sink()
+
 
