@@ -1,7 +1,7 @@
 #title: Data Charts
 #description: The primary goal is to create a csv chart file inside the code frame
-#input:
-#output:
+#input: aking in data received from the data-script
+#output: outputing data into ../images 
 library(ggplot2)
 library(jpeg)
 library(grid)
