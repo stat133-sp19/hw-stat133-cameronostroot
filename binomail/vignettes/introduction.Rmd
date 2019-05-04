@@ -1,0 +1,118 @@
+---
+title: "vignettes"
+author: "Cameron Ostroot"
+date: "5/3/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to binomial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+library(binomial)
+```
+
+
+#The Binomial Package
+
+The package "binomial" is a package which calculates the probabilities of binomial variables and further has functions able to calculate the distribution, variance, skewness, mean, mode, kurtosis, along with being able to find the expected value, and more.
+
+Overall binomial probability takes into account the number of trials and the expected probability of success based off of a binomial variable (a variable with 2 outcomes).
+
+
+##Bin Choose
+Bin Choose is a function which takes into account successes (k) and trials (n) in order to relay the number of times that a certain number of successes can occur.
+
+An example of how one can invoke bin_choose can be with the following code:
+```{r}
+bin_choose(n = 5, k = 2)
+```
+
+##Bin Probability
+Bin Probability is a function which takes into account successes, trials, and probability in order to relay the probability of achieving a certain binomial distribution.
+
+An example of how one can invoke bin_probability can be with the following code:
+```{r}
+bin_probability(success = 2, trials = 5, prob = 0.5)
+```
+
+
+##Bin Distribution
+Bin Distribution is a function which takes into account trials and probability in order to relay the overall distribution of the probability of success from 0 to the amount of trials. 
+
+An example of how one can invoke bin_distribution can be with the following code:
+```{r}
+bin_distribution(trials = 5, prob = 0.5)
+```
+
+The bin distribution function also has a method to help it plot the function. The plot function called on bin_distribution will result in a bar chart displaying the distribution itself.
+An example on how to invoke this plotting method is to write code similar to the following:
+```{r}
+dis1 <- bin_distribution(trials = 5, prob = 0.5)
+plot(dis1)
+```
+
+##Bin Cumulative
+Bin cumulative is another main function which takes into account trials and probability in order to relay the overal distribution of probability of success from 0 to the amount of trails, while also taking into account the cumulative amount of probability used.
+
+An example of how one can invoke bin_cumulative can be with the following code:
+```{r}
+bin_cumulative(trials = 5, prob = 0.5)
+```
+
+Similar to Bin Distribution, Bin Cumulative also has a method in order to invoke a certain graph, but in this case it is a line graph with points marking the growing cumulation of the probability distribution.
+An example on how to invoke this plotting method is to write code similar to the following:
+```{r}
+dis2 <- bin_cumulative(trials = 5, prob = 0.5)
+plot(dis2)
+```
+
+##Bin Variable
+Bin Variable is another main function which takes into account trials and probability in order to output a list which states the number of trials and probability that you entered.
+An example of how one can invoke bin_variable can be with the following code:
+```{r}
+bin1 <- bin_variable(trials = 10, p = 0.3)
+bin1
+```
+
+Bin variable has a method within it in order to output a clean summary of the data for bin_variable based on the binomial probability parameters which you provided.
+An example on how one can invoke this method in order to output a summary list with bin_variable can be with the following code:
+```{r}
+bin1 <- bin_variable(trials = 10, p = 0.3)
+binsum1 <- summary(bin1)
+binsum1
+```
+
+##The Functions of Measures
+There are several main functions which take into account trials and probability within the binomial package in order to compute several calculations based on a given binomial distribution.
+They are as follows:
+
+bin_mean is a function which calculates the mean of the binomial distribution. An example to invoke this function can be with the following code:
+```{r}
+bin_mean(10, 0.3)
+```
+
+bin_variance is a function which calculates the variance of the binomial distribution. An example to invoke this function can be with the following code:
+```{r}
+bin_variance(10, 0.3)
+```
+
+bin_mode is a function which calculates the mode of the binomial distribution. An example to invoke this function can be with the following code:
+```{r}
+bin_mode(10, 0.3)
+```
+
+bin_skewness is a function which calculates the skewness of the binomial distribution. An example to invoke this function can be with the following code:
+```{r}
+bin_skewness(10, 0.3)
+```
+
+bin_kurtosis is a function which calculates the kurtosis of the binomial distribution. An example to invoke this function can be with the following code:
+```{r}
+bin_kurtosis(10, 0.3)
+```
+
+
